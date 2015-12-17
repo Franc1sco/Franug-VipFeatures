@@ -5,12 +5,14 @@
 
 #define ADMFLAG_NEEDED ADMFLAG_CUSTOM6
 
+#define DATA "2.0"
+
 public Plugin:myinfo =
 {
 	name = "SM Franug Vip Features",
 	author = "Franc1sco franug",
 	description = "Features for vips",
-	version = "2.0",
+	version = DATA,
 	url = "http://claninspired.com/"
 };
 
@@ -22,6 +24,8 @@ new ACCOUNT_OFFSET;
 
 public OnPluginStart()
 {
+	CreateConVar("sm_franugvipfeatures_version", DATA, "", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY);
+	
 	trie_armas = CreateTrie();
 	
 	HookEvent("player_spawn", Event_PlayerSpawn);
